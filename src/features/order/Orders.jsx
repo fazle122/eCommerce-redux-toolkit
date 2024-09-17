@@ -19,7 +19,7 @@ export default function Orders(){
                     orders.map((order,index) => <div key={index} className="flex space-x-4 border-b-2">
                         <p>{`Order no: ${order._id}`}</p>
                         <p>{`Total amount: ${order.totalPrice}`}</p>
-                        <p>{`User name: ${order.user.name}`}</p>
+                        <p>{`User name: ${order?.user?.name}`}</p>
                         <p>{`Address: ${order.shippingAddress.address}`}</p>
                         <p>{!order.isDelivered ? "Not delivered" : `Delivered at ${order.deliveredAt} `}</p>
                         <Link className="underline" to={`/orders/${order._id}`}>Detail</Link>

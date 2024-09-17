@@ -20,9 +20,9 @@ let [searchParams] = useSearchParams();
 const min = searchParams.get("min") || "";
 const max = searchParams.get("max") || "";
 const category = searchParams.get("category") || "";
-const rating = searchParams.get("ratings") || ""
-;console.log(min);
-console.log(max);
+const rating = searchParams.get("ratings") || "";
+// console.log(min);
+// console.log(max);
 
 
 const params = { keyword, pageNumber };

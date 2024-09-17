@@ -27,7 +27,8 @@ export const productSlice = apiSLice.injectEndpoints({
                     "rating":params?.rating,
                     "price[gte]":params.min,
                     "price[lte]":params.max,
-                }
+                },
+                credentials:"include"
             }),
             providesTags:['Products'], 
             keepUnusedDataFor:5
@@ -35,13 +36,15 @@ export const productSlice = apiSLice.injectEndpoints({
         getProductDetail:builder.query({
             query:(productId) => ({
                 url:`${PRODUCTS_URL}/${productId}`,
+                credentials:"include"
             }),
             providesTags: ["Product"],
             keepUnusedDataFor:5
         }),
         getTopProducts:builder.query({
             query:() => ({
-                url:`${PRODUCTS_URL}/top`
+                url:`${PRODUCTS_URL}/top`,
+                credentials:"include"
             }),
             keepUnusedDataFor:5
         }),
@@ -49,7 +52,8 @@ export const productSlice = apiSLice.injectEndpoints({
             query:(data) =>({
                 url:`${PRODUCTS_URL}`,
                 method:'POST',   
-                body:data
+                body:data,
+                credentials:"include"
             }),
             invalidatesTags:['Products']
         }),
@@ -57,7 +61,8 @@ export const productSlice = apiSLice.injectEndpoints({
             query:({id,body})=>({
                 url:`${PRODUCTS_URL}/${id}/upload_images`,
                 method:'PUT',
-                body
+                body,
+                credentials:"include"
             }),
             invalidatesTags:['Product']
         }),
@@ -65,7 +70,8 @@ export const productSlice = apiSLice.injectEndpoints({
             query:({id,body})=>({
                 url:`${PRODUCTS_URL}/${id}/delete_image`,
                 method:'PUT',
-                body
+                body,
+                credentials:"include"
             }),
             invalidatesTags:['Product']
         }),
@@ -75,6 +81,7 @@ export const productSlice = apiSLice.injectEndpoints({
                   url: `${PRODUCTS_URL}/${id}`,
                   method: "PUT",
                   body,
+                  credentials:"include"
                 };
               },
             invalidatesTags:['Products']
@@ -82,7 +89,8 @@ export const productSlice = apiSLice.injectEndpoints({
         deleteProduct:builder.mutation({
             query:(productId)=>({
                 url:`${PRODUCTS_URL}/${productId}`,
-                method:'DELETE'
+                method:'DELETE',
+                credentials:"include"
             })
         }),
         // createReview:builder.mutation({
@@ -96,6 +104,7 @@ export const productSlice = apiSLice.injectEndpoints({
         canUserReview:builder.query({
             query:(productId) => ({
                 url:`${PRODUCTS_URL}/canReview?productId=${productId}`,
+                credentials:"include"
             }),
             invalidatesTags: ['Products'],
         }),
@@ -104,6 +113,7 @@ export const productSlice = apiSLice.injectEndpoints({
               url: `${PRODUCTS_URL}/${data.productId}/reviews`,
               method: 'POST',
               body: data,
+              credentials:"include"
             }),
             invalidatesTags: ['Products'],
           }),

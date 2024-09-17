@@ -14,16 +14,14 @@ export default function App(){
   // if(isLoading) return <p>Loading</p>
   return (
       <>
-        {/* <GoogleOAuthProvider clientId={clientId}> */}
+        
         <Header />
         <main className="px-10 py-10">
             <h1 className="text-2xl">Wellcome to E-Commerce solutions</h1>
-            {/* <Dashboard /> */}
             <Outlet />
-
         </main>
         <Footer /> 
-        {/* </GoogleOAuthProvider> */}
+       
       </>
     
   )

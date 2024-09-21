@@ -14,7 +14,7 @@ export default function CreateProduct(){
 
     const {userInfo} = useSelector((state) => state.auth);
 
-    console.log(userInfo);
+    // console.log(userInfo);
     const navigate = useNavigate();
     const {register,handleSubmit,formState:{errors,isSubmitting}} = useForm();
     const [createProduct,{isLoading:isCreating}] = useCreateProductMutation();
@@ -43,7 +43,7 @@ export default function CreateProduct(){
             const res = await createProduct(newProduct);
             console.log(res);
             // refetch();
-            toast.success('product updated')
+            toast.success('product created successfully')
             navigate('/admin/products')
         }catch(err){
             console.log(err);

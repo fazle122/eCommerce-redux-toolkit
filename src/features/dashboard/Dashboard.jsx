@@ -47,20 +47,21 @@ console.log(data);
         <div className='space-y-8'>
             {!keyword && <ProductCarousal />}
 
-            <div className='grid grid-cols-3'>
+            <div className='grid grid-cols-12'>
 
-                <div className='col-span-1'>  
+                <div className='hidden md:block md:col-span-5 lg:col-span-4 xl:col-span-3'>  
                     <Filter />
                 </div>
 
-                <div className='col-span-2 space-y-6'>
-                    <div className='space-y-4'>
+                <div className='space-y-4 col-span-12 md:col-span-7 lg:col-span-8 xl:col-span-9'>
+                    <div className='pl-2 space-y-4'>
                             <SearchBox />
                             {keyword && <div><Link to='/' className="rounded-md bg-black text-white px-2 py-2">Go back</Link></div>}
                     </div>
-                        <div className='flex space-x-10'>
-                            {data.products.map((product) => <Product key={product._id} product={product} />
-                            )}
+                        <div className='flex flex-wrap'>
+                            {
+                                data.products.map((product) => <Product key={product._id} product={product} /> )
+                            }
                         </div>
                         <Paginate 
                             pages={data.pages}

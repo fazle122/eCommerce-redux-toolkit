@@ -77,8 +77,8 @@ export default function Filter(){
 
 
     return (
-        <div className="border mx-4">
-        <h3>Filters</h3>
+        <div className="border mx-4 min-w-72 ">
+        <h3 className="flex justify-center">Filters</h3>
         <hr />
         <h5 className="flex items-center justify-center">Price</h5>
         <form  onSubmit={handleButtonClick}>

@@ -64,7 +64,7 @@ export default function AdminProducts(){
                             <p>{product.brand}</p>
                             <p>{product.price}</p>
                             <p>{product.category}</p>
-                            <Link className="underline" to={`/admin/product/${product._id}/edit`}>view detail</Link>
+                            <Link className="underline" to={`/admin/product/${product.slug}/edit`}>view detail</Link>
                             <button disabled={deleteLoading} className="bg-black text-white rounded-md px-2 py-1" onClick={()=> handleDelete(product._id)}>Delete</button>
                         </div>
                     )}

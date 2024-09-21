@@ -20,11 +20,11 @@ export default function ProductCarousal(){
     if(error) return <p>some thing went wrong</p>
     return (
         <div className="px-8 flex justify-center items-center">
-            <Carousel className="w-full max-w-xs">
+            <Carousel className="w-96">
                 <CarouselContent>
                     {
                         products.map((product,index) => 
-                        <CarouselItem key={index}>
+                        <CarouselItem key={index}> 
                             <div className="p-1">
                                     <Card>
                                         <CardContent className="flex aspect-square items-center justify-center p-6">

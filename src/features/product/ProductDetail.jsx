@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom";
-import { useCanUserReviewQuery, useCreateReviewsMutation, useGetProductDetailQuery } from "../../slices/productSlice";
+import { useCanUserReviewQuery, useCreateReviewsMutation, useGetProductDetailBySlugQuery } from "../../slices/productSlice";
 import Loader from "../../components/Loader";
 import { useEffect, useState } from "react";
 import { addToCart } from "../../slices/cartSlice";
@@ -16,10 +16,19 @@ export default function ProductDetail(){
     const {register,reset,handleSubmit,formState:{errors,isSubmitting}} = useForm();
     const [createReview,{isLoading:reviewLoading}] = useCreateReviewsMutation();
     const [qty,setQty] = useState(1);
-    const {productId} = useParams()
-    const {data:product,refetch,isLoading,isError,error} = useGetProductDetailQuery(productId);
-    console.log(error)
-    const {data,isLoading:canUserReviewLoading} = useCanUserReviewQuery(productId);
+
+    // const {productId} = useParams()
+    // console.log('product id--',productId);
+    // const {data:product,refetch,isLoading,isError,error} = useGetProductDetailQuery(productId);
+    const {slug} = useParams()
+    console.log('product slug--',slug);
+    const {data:product,refetch,isLoading,isError,error} = useGetProductDetailBySlugQuery(slug);
+
+
+
+    console.log('product -- ',product?._id)
+    // const {data,isLoading:canUserReviewLoading} = useCanUserReviewQuery(productId);
+    const {data,isLoading:canUserReviewLoading} = useCanUserReviewQuery(product?._id);
     
     console.log(data);
     const navigate = useNavigate();
@@ -31,7 +40,8 @@ export default function ProductDetail(){
 
     useEffect(() => {
         if(cartItems.length>0){
-            existItem = cartItems.find((ct) => ct._id === productId);
+            // existItem = cartItems.find((ct) => ct._id === productId);
+            existItem = cartItems.find((ct) => ct._id === product._id);
             if(existItem){
                 setQty(existItem.qty)
             }
@@ -54,7 +64,8 @@ export default function ProductDetail(){
                 toast.error('Admin can not review on product');
             }
             const review = {
-                productId,
+                // productId,
+                productId:product?._id,
                 rating:data['rating'],
                 comment:data['comment']
             }

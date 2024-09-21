@@ -8,7 +8,7 @@ export const userSlice = apiSLice.injectEndpoints({
         getClientId:builder.query({
             query:() =>({
                 url:`${USERS_URL}/clientId`,
-                credentials:"include"
+                // credentials:"include"
             })
         }),
         login:builder.mutation({
@@ -17,7 +17,7 @@ export const userSlice = apiSLice.injectEndpoints({
                 url:`${USERS_URL}/login`,
                 method:'POST',
                 body:data,
-                credentials:"include"
+                // credentials:"include"
             }),
         }),
         googleLogin:builder.mutation({
@@ -25,7 +25,7 @@ export const userSlice = apiSLice.injectEndpoints({
                 url:`${USERS_URL}/googleLogin`,
                 method:'POST',
                 body:data,
-                credentials:"include"
+                // credentials:"include"
             })
         }),
         register:builder.mutation({
@@ -33,7 +33,7 @@ export const userSlice = apiSLice.injectEndpoints({
                 url:`${USERS_URL}/register`,
                 method:'POST',
                 body:data,
-                credentials:"include"
+                // credentials:"include"
             }),
         }),
         logout:builder.mutation({
@@ -47,7 +47,7 @@ export const userSlice = apiSLice.injectEndpoints({
                 url:`${USERS_URL}/profile`,
                 method:'PUT',
                 body:data,
-                credentials:"include"
+                // credentials:"include"
             })
         }),
         getUsers:builder.query({
@@ -63,7 +63,7 @@ export const userSlice = apiSLice.injectEndpoints({
             query:(userId) =>({
                 url:`${USERS_URL}/${userId}`,
                 method:'DELETE',
-                credentials:"include"
+                // credentials:"include"
 
             })
         }),
@@ -84,7 +84,7 @@ export const userSlice = apiSLice.injectEndpoints({
         getUserDetails: builder.query({
             query: (id) => ({
               url: `${USERS_URL}/${id}`,
-              credentials:"include"
+            //   credentials:"include"
             }),
             keepUnusedDataFor: 5,
           }),
@@ -93,7 +93,7 @@ export const userSlice = apiSLice.injectEndpoints({
               url: `${USERS_URL}/${data.userId}`,
               method: 'PUT',
               body: data,
-              credentials:"include"
+            //   credentials:"include"
             }),
             invalidatesTags: ['Users'],
           }),

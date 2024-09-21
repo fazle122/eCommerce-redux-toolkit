@@ -8,13 +8,13 @@ export const orderSlice = apiSLice.injectEndpoints({
                 url: ORDERS_URL,
                 method:"POST",
                 body:{...order},
-                credentials:"include"
+                // credentials:"include"
             })
         }),
         getOrderDetail: builder.query({
             query:(orderId) => ({
                 url:`${ORDERS_URL}/${orderId}`,
-                credentials:"include"
+                // credentials:"include"
             }),
             keepUnusedDataFor: 5,
         }),
@@ -23,27 +23,27 @@ export const orderSlice = apiSLice.injectEndpoints({
                 url:`${ORDERS_URL}/${orderId}/pay`,
                 method:'PUT',
                 body:{...details},
-                credentials:"include"
+                // credentials:"include"
             })
         }),
         getPaypalClientId:builder.query({
             query:() =>({
                 url:PAYPAL_URL,
-                credentials:"include"
+                // credentials:"include"
             }),
             keepUnusedDataFor:5
         }),
         getUserOrders:builder.query({
             query:() => ({
                 url:`${ORDERS_URL}/userOrders`,
-                credentials:"include"
+                // credentials:"include"
             }),
             keepUnusedDataFor:5
         }),
         getAllOrders:builder.query({
             query:() => ({
                 url:ORDERS_URL,
-                credentials:"include"
+                // credentials:"include"
             }),
             keepUnusedDataFor:5
         }),
@@ -51,7 +51,7 @@ export const orderSlice = apiSLice.injectEndpoints({
             query:(orderId)=>({
                 url:`${ORDERS_URL}/${orderId}/deliver`,
                 method:'PUT',
-                credentials:"include"
+                // credentials:"include"
             })
         })
         

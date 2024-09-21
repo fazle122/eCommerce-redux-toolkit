@@ -98,9 +98,6 @@ export default function Navbar(){
                 </svg>
               </button>
             </div>
-            {/* <div className='absolute'>
-                <p>abcdefg</p>
-            </div> */}
   
             <div className="flex flex-1 pl-12 items-center justify-center md:items-start md:justify-start">
               <Link className="flex flex-shrink-0 items-center" href="/">
@@ -110,9 +107,6 @@ export default function Navbar(){
                 </span>
               </Link>
             </div>
-            {/* <div className='flex flex-1 pl-16 items-center justify-center'>
-                <p>test</p>
-            </div> */}
 
             <div className={`text-black`}>  
                 <ul className="flex space-x-4">
@@ -143,8 +137,9 @@ export default function Navbar(){
                         <DropdownMenu >
                             <DropdownMenuTrigger asChild>
                                 
-                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                    {userInfo.name}
+                            {/* <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button"> */}
+                            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="w-8 h-8 pt-1 rounded-full bg-black text-white" type="button">
+                                    {userInfo.name[0]}
                                      <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                         <path stroke="" 
                                         />
@@ -174,9 +169,6 @@ export default function Navbar(){
                 }
                 </ul>
             </div>
-            {/* <div>
-                <p>xyzuvw</p>
-            </div> */}
             
           </div>
         </div>

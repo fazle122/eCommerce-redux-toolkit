@@ -16,7 +16,7 @@ export default function App(){
       <>
         
         <Header />
-        <main className="px-8 py-8">
+        <main className="md:py-8 md:px-8">
             <h1 className="text-2xl">Wellcome to E-Commerce solutions</h1>
             <Outlet />
         </main>

@@ -1,12 +1,13 @@
 import { useGetTopProductsQuery } from "@/slices/productSlice"
 import Loader from "./Loader";
 import { Card, CardContent } from "@/components/ui/card"
+import Autoplay from "embla-carousel-autoplay"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+//   CarouselNext,
+//   CarouselPrevious,
 } from "@/components/ui/carousel"
 
 
@@ -20,7 +21,12 @@ export default function ProductCarousal(){
     if(error) return <p>some thing went wrong</p>
     return (
         <div className="px-8 flex justify-center items-center">
-            <Carousel className="w-96">
+            <Carousel className="w-96"
+            plugins={[
+                Autoplay({
+                  delay: 2000,
+                }),
+              ]}>
                 <CarouselContent>
                     {
                         products.map((product,index) => 
@@ -46,8 +52,8 @@ export default function ProductCarousal(){
                     </CarouselItem>
                     ))} */}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                {/* <CarouselPrevious /> */}
+                {/* <CarouselNext /> */}
             </Carousel>
         </div>
     )

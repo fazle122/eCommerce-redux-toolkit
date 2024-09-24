@@ -16,13 +16,36 @@ export default function App(){
       <>
         
         <Header />
+        
         <main className="md:py-8 md:px-8">
-            <h1 className="text-2xl">Wellcome to E-Commerce solutions</h1>
+            <h1 className="text-2xl flex items-center justify-center">Wellcome to E-Shop</h1>
             <Outlet />
         </main>
+
+
         <Footer /> 
        
       </>
+
+
+
+
+        // <>
+        //     <h1 className="flex items-center justify-center text-2xl underline">Admin content</h1>
+            // <div className="my-6 grid grid-cols-4">
+            //     <div className='col-span-1'>  
+            //         <div>
+            //             <SideMenu menuItems={sideMenu}/>
+            //         </div>
+            //     </div>
+
+            //     <div className='col-span-3'>  
+            //         <div>{children}</div>
+            //     </div>
+
+
+            // </div>
+        // </>
     
   )
 }

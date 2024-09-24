@@ -50,6 +50,13 @@ export const userSlice = apiSLice.injectEndpoints({
                 // credentials:"include"
             })
         }),
+        getProfile:builder.query({
+            query:() =>({
+                url:`${USERS_URL}/profile`,
+                method:'GET',
+                // credentials:"include"
+            })
+        }),
         getUsers:builder.query({
             query:()=>({
                 url:`${USERS_URL}`,
@@ -58,7 +65,14 @@ export const userSlice = apiSLice.injectEndpoints({
             providesTags:['Users'],
             keepUnusedDataFor:5,
         }),
-        
+        updatePassword:builder.mutation({
+            query:(data) =>({
+                url:`${USERS_URL}/password`,
+                method:'PUT',
+                body:data,
+                // credentials:"include"
+            })
+        }),
         deleteUser:builder.mutation({
             query:(userId) =>({
                 url:`${USERS_URL}/${userId}`,
@@ -97,6 +111,15 @@ export const userSlice = apiSLice.injectEndpoints({
             }),
             invalidatesTags: ['Users'],
           }),
+          addFavProduct: builder.mutation({
+            query: (data) => ({
+              url: `${USERS_URL}/addToFav`,
+              method: 'PUT',
+              body: data,
+            //   credentials:"include"
+            }),
+            invalidatesTags: ['Users'],
+          }),
     })
 });
 
@@ -107,11 +130,14 @@ export const {
     useRegisterMutation,
     useLogoutMutation,
     useProfileMutation,
+    useGetProfileQuery,
+    useUpdatePasswordMutation,
     useGetUsersQuery,
     useDeleteUserMutation,
     // useGetUserByIdQuery,
     // useUpdateUserMutation
     useGetUserDetailsQuery,
-    useUpdateUserMutation
+    useUpdateUserMutation,
+    useAddFavProductMutation
  } = userSlice;
 

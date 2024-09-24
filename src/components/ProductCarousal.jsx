@@ -17,7 +17,7 @@ export default function ProductCarousal(){
     const {data:products,isLoading,error} = useGetTopProductsQuery();
     // console.log(products);
 
-    if(isLoading) return <Loader />
+    if(isLoading) return <Loader minHeight={"min-h-96"}/>
     if(error) return <p>some thing went wrong</p>
     return (
         <div className="px-8 flex justify-center items-center">
@@ -29,7 +29,7 @@ export default function ProductCarousal(){
               ]}>
                 <CarouselContent>
                     {
-                        products.map((product,index) => 
+                        products?.map((product,index) => 
                         <CarouselItem key={index}> 
                             <div className="p-1">
                                     <Card>

@@ -22,7 +22,7 @@ export default function ImageUploader(){
     const [deleteProductImage,{ isLoading: isDeleteLoading, error: deleteError }] = useDeleteProductImageMutation();
   
     const  {data} = useGetProductDetailQuery(params?.id);
-    console.log(data);
+    // console.log(data);
   
     useEffect(() => {
       if (data) {
@@ -76,13 +76,12 @@ export default function ImageUploader(){
   
     const submitHandler = (e) => {
       e.preventDefault();
-      console.log()
   
       uploadProductImages({ id: params?.id, body: { images } });
     };
   
     const deleteImage = (imgId) => {
-      console.log(imgId)
+      // console.log(imgId)
       deleteProductImage({ id: params?.id, body: { imgId } });
       // setUploadedImages(data.product?.image.filter((item) => item.images.id === imgId));
 

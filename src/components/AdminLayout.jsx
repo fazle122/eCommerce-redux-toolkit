@@ -2,7 +2,6 @@
 import { MdDashboard } from "react-icons/md";
 import {IoMdPerson} from 'react-icons/io';
 import { BsBorderStyle } from "react-icons/bs";
-import { MdAddBox } from "react-icons/md";
 import SideMenu from "@/components/SideMenu";
 
 
@@ -10,11 +9,11 @@ export default function AdminLayout({children}){
 
 
     const sideMenu = [
-        {
-            name:"Add product",
-            url:'/admin/createNew',
-            icon:<MdAddBox size={20} className=''/> 
-        },
+        // {
+        //     name:"Add product",
+        //     url:'/admin/createNew',
+        //     icon:<MdAddBox size={20} className=''/> 
+        // },
         {
             name:"Product list",
             url:'/admin/products',

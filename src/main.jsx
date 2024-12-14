@@ -33,9 +33,12 @@ import AdminProducts from "./views/admin/product/AdminProductList.jsx";
 import AdminOrderList from "./views/admin/order/AdminOrderList.jsx";
 import UserRoute from "./components/UserRoute.jsx";
 import UserOrderList from "./views/user/orders/UserOrders.jsx";
-import FavouriteProducts from "./views/user/favourites/FavoutieProducts.jsx";
+import FavouriteProducts from "./views/user/FavoutieProducts.jsx";
 import OrderDetail from "./views/orderDetail/OrderDetail.jsx";
 import PlaceOrder from "./views/placeOrder/PlaceOrder.jsx";
+import ForgetPassword from "./views/passwordReset/ForgetPassword.jsx";
+import ResetPassword from "./views/passwordReset/ResetPassword.jsx";
+// import CheckBoxList from "./components/checkBox.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -46,6 +49,9 @@ const router = createBrowserRouter(
       <Route path="/:pageNumber" element={<Dashboard />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/forgetPass" element={<ForgetPassword />} />
+      <Route path="/resetPass/:token" element={<ResetPassword />} />
+      {/* <Route path="/test" element={<CheckBoxList />} /> */}
       {/* <Route  path='/product/:productId' element={<ProductDetail />} /> */}
       <Route path="/product/:slug" element={<ProductDetail />} />
       <Route path="/cart" element={<Cart />} />
@@ -66,7 +72,10 @@ const router = createBrowserRouter(
         <Route path="/admin/products" element={<AdminProducts />} />
         <Route path="/admin/createNew" element={<CreateProduct />} />
         <Route path="/admin/products/search/:keyword" element={<Dashboard />} />
-        <Route path="/admin/products/search/:keyword/:pageNumber" element={<Dashboard />} />
+        <Route
+          path="/admin/products/search/:keyword/:pageNumber"
+          element={<Dashboard />}
+        />
         <Route path="/admin/products/:pageNumber" element={<AdminProducts />} />
         <Route path="/admin/product/:id/edit" element={<ProductEdit />} />
         <Route path="/admin/users" element={<AdminUserList />} />

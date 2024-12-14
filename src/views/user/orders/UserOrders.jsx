@@ -64,7 +64,7 @@ export default function UserOrderList(){
                             headLabel={[
                                 { id: "orderId", label: "Order ID" },
                                 { id: "totalPrice", label: "Total Price" },
-                                { name: "name", label: "Name"},
+                                // { name: "name", label: "Name"},
                                 { id: "address", label: "Address" },
                                 { id: "" },
                             ]}

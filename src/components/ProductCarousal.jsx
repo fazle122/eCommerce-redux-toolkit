@@ -20,8 +20,8 @@ export default function ProductCarousal(){
     if(isLoading) return <Loader minHeight={"min-h-96"}/>
     if(error) return <p>some thing went wrong</p>
     return (
-        <div className="px-8 flex justify-center items-center">
-            <Carousel className="w-96"
+        <div className="">
+            <Carousel 
             plugins={[
                 Autoplay({
                   delay: 2000,
@@ -30,11 +30,11 @@ export default function ProductCarousal(){
                 <CarouselContent>
                     {
                         products?.map((product,index) => 
-                        <CarouselItem key={index}> 
+                        <CarouselItem key={index} > 
                             <div className="p-1">
-                                    <Card>
-                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                            <img className="w-32 md:w-64 " src={product.images[0].url} alt={product.name} />
+                                    <Card className="h-[300px] md:h-[500px]">
+                                        <CardContent className="flex aspect-square items-center justify-center">
+                                            <img className="w-32 md:w-64 pb-20 md:pb-4" src={product.images[0].url} alt={product.name} />
                                         </CardContent>
                                     </Card>
                             </div>

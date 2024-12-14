@@ -27,11 +27,16 @@ import { MdOutlineDeleteForever } from "react-icons/md";
 import { PiDotsThreeVerticalBold } from "react-icons/pi";
 import ProductTableRow from "./TableRow";
 import ProductTableHead from "./TableHead";
+import Modal from "@/components/Modal";
+import CreateProduct from "@/views/product/CreateProduct";
 
 
 
 
 export default function AdminProducts(){
+
+    const [open, setOpen] = useState(false); 
+    const handleOpen = () => setOpen(!open);
 
     const {pageNumber} = useParams();
     const {data,refetch,isLoading,error} = useGetProductsQuery({pageNumber});
@@ -54,19 +59,6 @@ export default function AdminProducts(){
         // }
     }
 
-    // async function handleDelete(id){
-    //     if(window.confirm('Are you sure?')){
-    //         try{
-    //             await deleteProduct(id);
-    //             refetch();
-    //             toast.success('product deleted successfully');
-    //         }catch(err){
-    //             toast.error(err?.data?.message || err.error)
-    //         }
-    //     }
-
-    // }
-
     
 
     return(
@@ -75,9 +67,12 @@ export default function AdminProducts(){
                 <div className="flex justify-between">
                     <h1 className="underline">Product list for admin</h1>
                     <div>
-                        <button onClick={handelCreateProduct} disabled={isLoading} className="rounded-md bg-black text-white px-5 py-2">Create product</button>
-                        {error &&  <p>some thing went wrong</p>}
-
+                        <button onClick={handleOpen} disabled={isLoading} className="rounded-md bg-black text-white px-5 py-2">Create product</button>
+                        { 
+                            <Modal isOpen={open} handleOpen={handleOpen}>
+                                <CreateProduct handleOpen={handleOpen} />
+                            </Modal>
+                        }
                     </div>
                     
 

@@ -97,7 +97,7 @@ export default function Register(){
 
 
 
-        <div className="flex items-center justify-center min-h-screen bg-rose-50">
+        <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="relative flex flex-col m-6 space-y-10 bg-white rounded-2xl md:flex-row md:space-y-0 md:m-0">
             
             <div className="p-6 md:p-20 space-y-5">
@@ -151,7 +151,7 @@ export default function Register(){
                         
 
                         <div className="flex flex-col md:flex-row md:my-8 justify-between space-y-8 md:space-y-0">
-                            <button disabled={isSubmitting && isLoading} className="w-full md:w-auto flex justify-center items-center p-6 space-x-4 font-sans font-bold text-white rounded-md shadow-lg px-9 bg-cyan-700 shadow-cyan-100">Register </button>
+                            <button disabled={isSubmitting && isLoading} className="w-full md:w-48 flex justify-center items-center p-6 space-x-4 font-sans font-bold text-white rounded-md shadow-lg px-9 bg-cyan-700 shadow-cyan-100">Register </button>
                         </div>
 
                 </form>

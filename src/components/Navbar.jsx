@@ -89,7 +89,7 @@ export default function Navbar() {
           >
             E-Shop
           </Typography>
-
+          {/* 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -123,18 +123,18 @@ export default function Navbar() {
                   onClick={() => handleCloseNavMenu(page.url)}
                 >
                   <Typography sx={{ textAlign: "center" }}>
-                    {page.label}
+                    {userInfo && page.label === "Login" ? "" : page.label}
                   </Typography>
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
 
           <AddShoppingCartIcon
             sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
           />
 
-          <Typography
+          {/* <Typography
             variant="h5"
             noWrap
             component="a"
@@ -151,7 +151,7 @@ export default function Navbar() {
             }}
           >
             E-Shop
-          </Typography>
+          </Typography> */}
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
@@ -160,46 +160,50 @@ export default function Navbar() {
                 onClick={() => handleCloseNavMenu(page.url)}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page.label}
+                {/* {page.label} */}
+                {userInfo && page.label === "Login" ? "" : page.label}
               </Button>
             ))}
           </Box>
 
           {userInfo && (
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title={userInfo.name}>
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/default_avatar.png" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {popUpMenu.map((menu) => (
-                  <MenuItem
-                    key={menu.label}
-                    onClick={() => handleCloseUserMenu(menu.url)}
-                  >
-                    <Typography sx={{ textAlign: "center" }}>
-                      {menu.label}
-                    </Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
+            <div className="flex flex-row">
+              <p className="px-2 py-2">{userInfo.name}</p>
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title={userInfo.name}>
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt="Remy Sharp" src="/default_avatar.png" />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {popUpMenu.map((menu) => (
+                    <MenuItem
+                      key={menu.label}
+                      onClick={() => handleCloseUserMenu(menu.url)}
+                    >
+                      <Typography sx={{ textAlign: "center" }}>
+                        {menu.label}
+                      </Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+            </div>
           )}
         </Toolbar>
       </Container>
